@@ -1,15 +1,20 @@
 ﻿@page
 @model Secret.Pages.ResultModel
-@{
-    ViewData["Title"] = "Secret Santa Draw 2018";
-}
-<h2>@ViewData["Title"]</h2>
 
 <h2>Awe @Model.Person.Name !</h2>
 
 <h4>Jy moet iets kry vir: @Model.Recipient</h4>
 
+<hr />
 <h4>Reëls:</h4>
 
 <p>Ons spandeer net R250 op die geskenk.</p>
-<p>Dogtertjies gaan nie in die draw in nie want hulle mag tonne persente kry.</p>
+<p>Elkeen moet ook iets klein kry vir die persoon se kers kous (buite die budget)</p>
+<p>Die dogtertjies gaan nie in die draw in nie want hulle mag tonne persente kry.</p>
+
+
+<h2>Mense wat klaar in is: </h2>
+@foreach (var person in Model.Persons)
+{
+    <p>- @person.Name</p>
+}

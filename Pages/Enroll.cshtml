@@ -1,20 +1,26 @@
 ﻿@page
 @model EnrollModel
-@{
-    ViewData["Title"] = "Secret Santa Draw 2018";
-}
-<h2>@ViewData["Title"]</h2>
-<h3>Sit jou naam in en 'n 'secret'.  Onthou/skryf die secret erens neer, in case jy jou link verloor.</h3>
+
+<h3>Secret Santa Draw 2018</h3>
+<h4>Skryf die secret erens neer, in case jy jou link verloor.</h4>
+
+<hr />
 
 <div asp-validation-summary="All"></div>
 <form method="POST">
-    <div>Naam:   <input asp-for="Person.Name" /></div>
-    <div>Secret: <input asp-for="Person.Phrase" /></div>
-    <input type="submit" />
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Naam:</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Jou naam (net naam kort nie van nie)" asp-for="Person.Name" />
+    </div>
+    <hr />
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Secret:</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Jou 'secret' phrase, onthou dit!" asp-for="Person.Phrase"/>
+    </div>
+    <hr />
+    <input type="submit" class="btn btn-xl btn-light mr-4" title="Go!" />
 </form>
-
-<h2>Mense wat klaar in is: </h2>
-@foreach (var person in Model.Persons)
-{
-    <p>- @person.Name</p>
-}

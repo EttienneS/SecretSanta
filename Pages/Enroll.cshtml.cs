@@ -17,13 +17,6 @@ namespace Secret.Pages
             _db = db;
         }
 
-        public async Task OnGetAsync()
-        {
-            Persons = await _db.Persons.AsNoTracking().ToListAsync();
-        }
-
-        public IList<Person> Persons { get; private set; }
-
         [BindProperty]
         public Person Person { get; set; }
 
